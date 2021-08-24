@@ -2,6 +2,7 @@
   "name": "forge-ui-starter",
   "version": "1.0.0",
   "main": "index.js",
+  "author": "Muzamint, Ming-der Wang",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -15,13 +16,11 @@
   "dependencies": {
     "@forge/api": "^2.2.0",
     "@forge/ui": "^0.13.1",
-    "axios": "^0.21.1",
-    "bufferutil": "^4.0.3",
-    "ethers": "^5.4.5",
-    "etherspot": "^1.16.2",
-    "node-fetch": "^2.6.1",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.3.0",
-    "utf-8-validate": "^5.0.5"
-  }
+    "react": "^17.0.2"
+  },
+  "keywords": [
+    "ethereum",
+    "forge",
+    "gas station"
+  ]
 }
