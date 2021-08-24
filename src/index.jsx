@@ -20,7 +20,7 @@ const LogData = ({ counter }) => {
     await sendLog()
     setLogSend(Date.now())
     const result = await fetch(
-      'https://api.github.com/users/mingderwang',
+      'https://ethgasstation.info/api/ethgasAPI.json',
     )
     const status = result.text()
     setLogSend(status)
@@ -36,12 +36,11 @@ const App = () => {
   return (
     <Fragment>
       <Button
-        text={`Count is ${count}`}
+        text={`Refreash ${count}`}
         onClick={() => {
           setCount(count + 1)
         }}
       />
-      <Text>{`gas: ${gas}`}</Text>
       <LogData counter={count} />
     </Fragment>
   )
