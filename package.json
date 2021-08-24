@@ -1,6 +1,6 @@
 {
-  "name": "forge-ui-starter",
-  "version": "1.0.0",
+  "name": "eth-gas-station-info",
+  "version": "0.0.1",
   "main": "index.js",
   "author": "Muzamint, Ming-der Wang",
   "license": "MIT",
@@ -21,6 +21,7 @@
   "keywords": [
     "ethereum",
     "forge",
-    "gas station"
+    "eth gas station",
+    "fetch"
   ]
 }
