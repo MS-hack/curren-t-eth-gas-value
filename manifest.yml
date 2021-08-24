@@ -14,4 +14,4 @@ permissions:
   external:
     fetch:
       backend:
-        - 'https://www.google-analytics.com'
+        - 'https://api.github.com'
