@@ -1,0 +1,17 @@
+modules:
+  jira:issuePanel:
+    - key: test-jira-panel-hello-world-panel
+      function: main
+      title: test-jira-panel for Ming
+      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+  function:
+    - key: main
+      handler: index.run
+app:
+  id: ari:cloud:ecosystem::app/25d87ced-f9e4-4330-bea8-060ceb996275
+  name: test-jira-panel
+permissions:
+  external:
+    fetch:
+      backend:
+        - 'https://www.google-analytics.com'
