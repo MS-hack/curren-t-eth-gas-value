@@ -1,6 +1,8 @@
-# Forge Hello World
+# ETH Gas Station Info for Jira Issu
 
-This project contains a Forge app written in Javascript that displays `Hello World!` in a Jira issue panel. 
+This project contains a Forge app written in Javascript that provide ETH Gas Station Information in a Jira issue panel, as bellow;
+
+![](./images/jira_screenshot.png)
 
 See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/platform/forge) for documentation and tutorials explaining Forge.
 
