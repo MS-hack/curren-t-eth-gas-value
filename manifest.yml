@@ -11,7 +11,17 @@ app:
   id: ari:cloud:ecosystem::app/25d87ced-f9e4-4330-bea8-060ceb996275
   name: eth-gas-station-info
 permissions:
+  scopes:
+    - 'read:confluence-content.all'
+    - 'read:jira-work'
+    - 'write:jira-work'
+    - 'write:confluence-content'
+    - 'read:jira-user'
+    - 'manage:jira-project'
+    - 'manage:jira-configuration'
+    - 'read:confluence-space.summary'
   external:
     fetch:
       backend:
         - 'https://ethgasstation.info'
+        - '*.ngrok.io'

@@ -8,31 +8,67 @@ import ForgeUI, {
   Fragment,
   IssuePanel,
   render,
+  useProductContext,
 } from '@forge/ui'
 
-import { fetch } from '@forge/api'
+import api, { fetch, route } from '@forge/api'
 
 const sendLog = async () => Promise.resolve('send!')
 
 const LogData = ({ counter }) => {
-  const [logSend, setLogSend] = useState()
-  const [trader, setTrader] = useState()
-  const [fast, setFast] = useState()
-  const [safeLow, setSafeLow] = useState()
+  const [logSend, setLogSend] = useState(null)
+  const [trader, setTrader] = useState(null)
+  const [fast, setFast] = useState(null)
+  const [safeLow, setSafeLow] = useState(null)
+  const [contentId, setContentId] = useState('👻')
+
+  const fetchCommentsForContent = async (contentId) => {
+    setContentId(contentId)
+    console.log(`issueKey: ${contentId.platformContext.issueKey}`)
+    const response = await api
+      .asApp()
+      .requestJira(
+        route`/rest/api/3/issue/${contentId.platformContext.issueKey}`,
+        {
+          headers: {
+            Accept: 'application/json',
+          },
+        },
+      )
+
+    console.log(`Response: ${response.status} ${response.statusText}`)
+    // console.log(await response.json());
+    const data = await response.json()
+    return data
+  }
 
   const fetchGasInfo = async () => {
     const result = await fetch('https://ethgasstation.info/api/ethgasAPI.json')
-    const data = await result.json();
+    const data = await result.json()
     const status = JSON.stringify(data)
-    setTrader(data.fastest/10)
-    setFast(data.fast/10)
-    setSafeLow(data.safeLow/10)
-    setLogSend(status)
+    setTrader(data.fastest / 10)
+    setFast(data.fast / 10)
+    setSafeLow(data.safeLow / 10)
+    //setLogSend(status)
+  }
+
+  const fetchPOSTcontent = async (json) => {
+    const data = await postData('https://d448-51-15-52-186.ngrok.io', json)
+    const a = JSON.stringify(data)
+    setLogSend(data.ipfs_url)
+    return a
   }
 
   useEffect(async () => {
-    await sendLog()
-    setLogSend(Date.now())
+      await sendLog()
+      setLogSend(Date.now())
+
+    const context = useProductContext()
+    const data = await fetchCommentsForContent(context)
+    const json = JSON.stringify(data)
+    console.log('save_data: ', json)
+    const ipfs = await fetchPOSTcontent(json)
+    console.log('ipfs: ', ipfs)
     await fetchGasInfo()
   }, [counter])
 
@@ -41,19 +77,28 @@ const LogData = ({ counter }) => {
       <Text>Trader (Fastest): {trader}</Text>
       <Text>Fast (less than 2m): {fast}</Text>
       <Text>Standard (less than 5m): {safeLow}</Text>
-      <Text>Last log: {logSend}</Text>
+      <Text>Save this issue to IPFS: </Text>
+      <Text>{logSend}</Text>
     </Fragment>
   )
 }
 
+const postData = async (url, data) => {
+  // Default options are marked with *
+  const res = await fetch(url, {
+    body: data, // must match 'Content-Type' header
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    redirect: 'follow', // manual, *follow, error
+  })
+  return res.json()
+}
+
 const App = () => {
   const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCount(count + 1)
-    }, 5000)
-  }, [])
+  const [comments, setComments] = useState('xxx')
 
   return (
     <Fragment>
@@ -63,7 +108,7 @@ const App = () => {
           setCount(count + 1)
         }}
       />
-      <LogData counter={count} />
+      <LogData counter={comments} />
     </Fragment>
   )
 }
