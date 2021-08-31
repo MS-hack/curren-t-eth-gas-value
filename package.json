@@ -1,6 +1,6 @@
 {
   "name": "eth-gas-station-info",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "author": "Muzamint, Ming-der Wang<mingderwang@gmail.com>",
   "license": "MIT",

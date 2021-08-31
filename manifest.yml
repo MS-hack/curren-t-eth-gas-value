@@ -13,6 +13,13 @@ app:
 permissions:
   scopes:
     - 'read:jira-work'
+    - 'read:confluence-content.all'
+    - 'write:jira-work'
+    - 'write:confluence-content'
+    - 'read:jira-user'
+    - 'manage:jira-project'
+    - 'manage:jira-configuration'
+    - 'read:confluence-space.summary'
   external:
     fetch:
       backend:
