@@ -12,16 +12,9 @@ app:
   name: eth-gas-station-info
 permissions:
   scopes:
-    - 'read:confluence-content.all'
     - 'read:jira-work'
-    - 'write:jira-work'
-    - 'write:confluence-content'
-    - 'read:jira-user'
-    - 'manage:jira-project'
-    - 'manage:jira-configuration'
-    - 'read:confluence-space.summary'
   external:
     fetch:
       backend:
         - 'https://ethgasstation.info'
-        - '*.ngrok.io'
+        - 'https://ipfs-proxy-server.muzamint.com/'

@@ -53,7 +53,7 @@ const LogData = ({ counter }) => {
   }
 
   const fetchPOSTcontent = async (json) => {
-    const data = await postData('https://d448-51-15-52-186.ngrok.io', json)
+    const data = await postData('https://ipfs-proxy-server.muzamint.com/', json)
     const a = JSON.stringify(data)
     setLogSend(data.ipfs_url)
     return a
