@@ -1,27 +1,17 @@
 modules:
   jira:issuePanel:
-    - key: test-jira-panel-hello-world-panel
+    - key: test-jira-panel
       function: main
-      title: ETH Gas Station Info
-      icon: https://developer.atlassian.com/platform/forge/images/icons/issue-panel-icon.svg
+      title: ETH Gas Station
+      icon: x.svg
   function:
     - key: main
       handler: index.run
 app:
-  id: ari:cloud:ecosystem::app/25d87ced-f9e4-4330-bea8-060ceb996275
+  id: ari:cloud:ecosystem::app/559eb959-3bb2-45f4-bfdd-c9cae8ac84ec
   name: eth-gas-station-info
 permissions:
-  scopes:
-    - 'read:jira-work'
-    - 'read:confluence-content.all'
-    - 'write:jira-work'
-    - 'write:confluence-content'
-    - 'read:jira-user'
-    - 'manage:jira-project'
-    - 'manage:jira-configuration'
-    - 'read:confluence-space.summary'
   external:
     fetch:
       backend:
         - 'https://ethgasstation.info'
-        - 'https://ipfs-proxy-server.muzamint.com/'
