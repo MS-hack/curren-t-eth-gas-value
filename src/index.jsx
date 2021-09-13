@@ -25,7 +25,7 @@ const LogData = ({ counter }) => {
     setTrader(data.fastest / 10)
     setFast(data.fast / 10)
     setSafeLow(data.safeLow / 10)
-    //setLogSend(status)
+    // setLogSend(status)
   }
 
   useEffect(async () => {
@@ -41,6 +41,7 @@ const LogData = ({ counter }) => {
     </Fragment>
   )
 }
+// <Text>{logSend}</Text>
 
 const postData = async (url, data) => {
   // Default options are marked with *
@@ -62,12 +63,12 @@ const App = () => {
   return (
     <Fragment>
       <Button
-        text={`Reload`}
+        text={`Refresh`}
         onClick={() => {
           setCount(count + 1)
         }}
       />
-      <LogData counter={comments} />
+      <LogData counter={count} />
     </Fragment>
   )
 }

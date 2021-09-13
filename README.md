@@ -1,10 +1,8 @@
-# ETH Gas station Info + Save Jira Issue to IPFS
+# Current ETH Gas Value 
 
 This project contains a Forge app written in Javascript that provide ETH Gas Station Information in a Jira issue panel, as bellow;
 
 ![](./images/jira_screenshot.png)
-# demo IPFS
-![](./images/ipfs.png)
 
 See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/platform/forge) for documentation and tutorials explaining Forge.
 

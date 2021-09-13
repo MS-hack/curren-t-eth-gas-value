@@ -1,8 +1,8 @@
 {
-  "name": "eth-gas-station-info",
-  "version": "0.1.1",
+  "name": "current-eth-gas-value",
+  "version": "1.0.0",
   "main": "index.js",
-  "author": "Muzamint, Ming-der Wang<mingderwang@gmail.com>",
+  "author": "MS-hack Team, Ming-der Wang<mingderwang@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {

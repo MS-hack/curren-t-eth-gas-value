@@ -2,7 +2,7 @@ modules:
   jira:issuePanel:
     - key: test-jira-panel
       function: main
-      title: ETH Gas Station
+      title: Current ETH Gas Value
       icon: x.svg
   function:
     - key: main
